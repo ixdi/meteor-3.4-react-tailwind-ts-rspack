@@ -1,0 +1,39 @@
+{
+  "jsc": {
+    "baseUrl": "./",
+    "paths": {
+      "@": ["./@"],
+      "@api/*": ["./imports/api/*"],
+      "@ui/*": ["./imports/ui/*"],
+      "@components/*": ["./imports/ui/components/*"],
+      "@styles/*": ["./imports/styles/*"]
+    },
+    "externalHelpers": false,
+    "transform": {
+      "react": {
+        "runtime": "automatic",
+        "pragma": "React.createElement",
+        "pragmaFrag": "React.Fragment",
+        "throwIfNamespace": true,
+        "development": false,
+        "useBuiltins": true
+      }
+    },
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true,
+      "dynamicImport": true,
+      "privateMethod": true,
+      "functionBind": false,
+      "classPrivateProperty": false,
+      "exportDefaultFrom": true,
+      "exportNamespaceFrom": true,
+      "decorators": true,
+      "decoratorsBeforeExport": false,
+      "importMeta": false
+    },
+    "experimental": {
+      "plugins": []
+    }
+  }
+}

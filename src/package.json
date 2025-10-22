@@ -1,0 +1,93 @@
+{
+  "name": "coach_studio",
+  "version": "3.0.0",
+  "description": "A platform to organize the coaches and clubs daily work",
+  "author": "Sergi Cortés",
+  "email": "contact@coachstudio.net",
+  "main": "client/app.ts",
+  "license": "Copyright",
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "docs": "jsdoc -c ../docs.json",
+    "local": "MONGO_URL='mongodb://127.0.0.1:27017/CoachStudio' meteor --settings ../settings.json",
+    "husky:prepare": "husky",
+    "prepare": "husky",
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "test:owasp": "owasp-dependency-check --project \"Coach Studio - Coach\" -f HTML JSON --nvdApiKey 333 -s './src/**/*' --exclude node_modules --exclude .husky --exclude .next --exclude .git --exclude 'src/test*/**/*' --exclude playwright-report --exclude dependency-check-bin --exclude dependency-check-reports",
+    "test:owasp:report": "google-chrome-stable dependency-check-reports/dependency-check-report.html",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.28.4",
+    "@swc/helpers": "^0.5.17",
+    "meteor-node-stubs": "^1.2.24",
+    "react": "^19.2.0",
+    "react-addons-pure-render-mixin": "^15.6.3",
+    "react-dom": "^19.2.0",
+    "scheduler": "^0.27.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/format": "^20.0.0",
+    "@commitlint/types": "^20.0.0",
+    "@eslint/js": "^9.38.0",
+    "@meteorjs/rspack": "^0.0.60",
+    "@rsdoctor/rspack-plugin": "1.3.3",
+    "@rspack/cli": "1.5.8",
+    "@rspack/core": "1.5.8",
+    "@rspack/plugin-react-refresh": "^1.5.2",
+    "@swc/plugin-transform-imports": "^9.1.0",
+    "@tailwindcss/oxide": "4.1.15",
+    "@tailwindcss/postcss": "^4.1.15",
+    "@types/meteor": "^2.9.9",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.9.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "and": "^0.0.3",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.38.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.4.0",
+    "husky": "^9.1.7",
+    "jsdoc": "^4.0.5",
+    "lint-staged": "^16.2.5",
+    "owasp-dependency-check": "^1.0.0",
+    "postcss": "^8.5.6",
+    "postcss-load-config": "^6.0.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "react-refresh": "^0.18.0",
+    "tailwindcss": "^4.1.15"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.tsx",
+      "server": "server/main.ts"
+    },
+    "testModule": "tests/main.ts",
+    "modern": true
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix"
+    ],
+    "*.{ts,tsx,js,jsx,json,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "packageManager": "pnpm@10.18.3"
+}
