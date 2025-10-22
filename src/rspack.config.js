@@ -13,5 +13,6 @@ import { defineConfig } from '@meteorjs/rspack';
 export default defineConfig((_Meteor) => ({
   devServer: {
     port: 'auto',
+    static: 'public',
   },
 }));
